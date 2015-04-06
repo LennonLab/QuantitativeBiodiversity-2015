@@ -1,0 +1,124 @@
+
+
+Included in R and various R packages are some basic datasets that are useful for testing functions and learning about R features and functions. One such dataset is **cars**. To learn about this dataset you can simple use the `{r} help` function
+
+```{r}
+help(cars)
+```
+Use the `{r} str()` and `{r} summary()' functiosn to see basic summary statistics about this dataset
+```{r}
+str(cars)
+summary(cars)
+```
+To visualize this data you can generate a simple plot with the `{r} plot()` function
+```{r}
+plot(cars)
+```
+You can also embed plots, for example: # JTL, line by line, got an error; plus not sure how useful? what's point?
+```{r, echo=FALSE}
+plot(cars)
+```
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.'
+
+## Other Useful Features and Fucntions: Sorting, Subsetting, Sampling
+##JTL: seems like some of this could be combined with stuff above
+**Sorting**
+We can use another dataset (mtcars) to practice sorting (ordering) data. Learn about mtcars via `{r} help(mtcars)`
+
+sort by mpg
+```{r}
+newdata <- mtcars[order(mtcars$mpg),]
+```
+sort by mpg and cyl # JTL: not sure how effect the cyl sort is
+```{r}
+newdata <- mtcars[order(mtcars$mpg, mtcars$cyl),]
+```
+sort by mpg (ascending) and cyl (descending) #JTL: same as above?
+```{r}
+newdata <- mtcars[order(mtcars$mpg, - mtcars$cyl),]
+```
+Now, Let's make a new vector of data
+```{r}
+z <- c(1.5, 1/6, 1/3)
+```
+If we only want to view  the first two decimal places of z
+```{r}
+round(z,2)
+```
+Now, we can reverse the order of the elements in z
+```{r}
+rev(z)
+```
+And we can order z from smallest to largest
+```{r}
+sort(z)
+```
+We can also identify the ordering of z #JTL: with respect to what?
+```{r}
+order(z)
+```
+i.e., the 2nd number is the min and the 1st number is the max
+
+Additionally, we can idenify the maximum values this way:
+```{r}
+max(z)
+```
+**Subsetting**
+Let's create a original object vector, x:
+```{r}
+x <- c(3, 4, 7)
+x
+```
+Now, let's subset this vector and keep only the first three values
+```{r}
+x[-3]
+```
+Now, let's subset this vector and keep only the velues greater than or equal to 5
+```{r}
+x[x >= 5]
+```
+Notice that we did this using a logic statement `{r} >=`. Here is a list of other logica operators that you might find useful:
+
+|Logic Operator|Meaning| # confusing to start using new symbols "|"?
+|! x | Is Not "x"|
+|x & y| "x" and "y" (element by element) |
+|x && y| "x" and "y" (across all elements)|
+|x `|` y | "x" or "y" (element by element)|
+|x `||` y | "x" or "y" (across all elments)|
+
+You can learn more about this commands (`{r} help(Logic, package=base))
+
+
+**Sampling**
+
+
+
+
+
+
+
+
+First, let's create a sequence of numbers
+```{r}
+seq(1,3,length=5)
+
+# Create the same sequence in a slightly different way:
+seq(1,3,by=0.5)
+
+# Create another sequence by going from 3 to 1:
+seq(3,1,by= -0.5)
+```
+
+To randomly sample from an existing vector:
+```{r}
+sample(x,10,replace=T)
+```
+
+Or to randomly sample from a sequence of numbers from 1 to 500:
+```{r}
+sample(1:500,10,replace=F)
+```
+
+
+
+
