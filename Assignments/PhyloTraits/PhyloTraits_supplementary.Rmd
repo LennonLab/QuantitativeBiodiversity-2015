@@ -1,0 +1,16 @@
+---
+title: "Untitled"
+author: "Jay T. Lennon"
+date: "February 15, 2015"
+output: html_document
+---
+
+Matrix algebra approach to measuring niche breadth
+```{r}
+levins.2 <- function(p_xi = ""){
+  p_xi = as.numeric(p_xi)
+  nb = 1 / (length(p_xi) * (p_xi %*% p_xi))
+  return(nb)
+}  
+levins.2(p.growth[1, ])
+```
